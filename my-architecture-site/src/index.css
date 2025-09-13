@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2026 Futuristic Base Styles */
+:root {
+  --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #14b8a6 100%);
+  --hologram-glow: 0 0 30px rgba(14, 165, 233, 0.6);
+  --magnetic-shadow: 0 20px 40px rgba(14, 165, 233, 0.3);
+  --neural-pulse: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #ffffff;
+  background: linear-gradient(135deg, #000000 0%, #0f172a 50%, #000000 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none; /* Hide default cursor for custom cursor */
+}
+
+/* Custom Scrollbar - Futuristic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #0284c7, #0891b2);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.8);
+}
+
+/* Typography - 2026 Enhanced */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #ffffff;
+  text-rendering: optimizeLegibility;
+}
+
+.text-hologram {
+  background: var(--primary-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: hologram-pulse 3s ease-in-out infinite;
+}
+
+@keyframes hologram-pulse {
+  0%, 100% { 
+    filter: hue-rotate(0deg) brightness(1);
+    text-shadow: 0 0 0px rgba(14, 165, 233, 0);
+  }
+  50% { 
+    filter: hue-rotate(10deg) brightness(1.2);
+    text-shadow: 0 0 20px rgba(14, 165, 233, 0.8);
+  }
+}
+
+/* Magnetic Hover Effects */
+.magnetic-hover {
+  transition: all 0.3s var(--neural-pulse);
+  cursor: none;
+}
+
+.magnetic-hover:hover {
+  transform: scale(1.05) translateZ(10px);
+  box-shadow: var(--magnetic-shadow);
+  filter: brightness(1.1);
+}
+
+/* Glassmorphism Card/Button Styles */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 12px 24px;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 300;
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Holographic Borders */
+.holographic-border {
+  position: relative;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.holographic-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: var(--primary-gradient);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.holographic-border:hover::before {
+  opacity: 1;
+}
+
+/* Neural Network Animation */
+@keyframes neural-pulse {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.neural-pulse {
+  animation: neural-pulse 2s ease-in-out infinite;
+}
+
+/* Particle System */
+.particle-system {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #06b6d4;
+  border-radius: 50%;
+  animation: particle-float 6s linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(100px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* 3D Perspective Container */
+.perspective-container {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+.transform-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--neural-pulse);
+}
+
+.transform-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+}
+
+/* Glitch Effect */
+.glitch-text {
+  position: relative;
+  color: #ffffff;
+  animation: glitch 2s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: glitch-1 0.5s infinite;
+  color: #0ea5e9;
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch-2 0.5s infinite;
+  color: #06b6d4;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+}
+
+/* Quantum Loading Animation */
+.quantum-loader {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(14, 165, 233, 0.2);
+  border-top: 2px solid #06b6d4;
+  border-radius: 50%;
+  animation: quantum-spin 1s linear infinite;
+  position: relative;
+}
+
+.quantum-loader::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid transparent;
+  border-top: 2px solid #0891b2;
+  border-radius: 50%;
+  animation: quantum-spin 0.7s linear infinite reverse;
+}
+
+@keyframes quantum-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: 6rem;
+  }
+  
+  h2 {
+    font-size: 4rem;
+  }
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(14, 165, 233, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(14, 165, 233, 0.3);
+  color: #ffffff;
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  body {
+    background: #000000;
+    color: #ffffff;
+  }
+  
+  .holographic-border {
+    border-color: #ffffff;
+  }
+}
