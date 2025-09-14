@@ -2,3 +2,10 @@
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
   status = 200
+  [build]
+command = "npm run build"
+publish = "out"
+base = ""
+
+[build.environment]
+NODE_VERSION = "18"
