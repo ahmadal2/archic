@@ -1,6 +1,8 @@
 {
-  "dependencies": {
-    "@netlify/plugin-nextjs": "^5.13.2",
-    "framer-motion": "^12.23.12"
-  }
+  "name": "archecture-project",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "my-architecture-site"
+  ]
 }
