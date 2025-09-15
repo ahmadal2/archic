@@ -36,6 +36,17 @@ body {
   cursor: none; /* Hide default cursor for custom cursor */
 }
 
+/* Hide custom cursor on mobile devices */
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  
+  .fixed.top-0.left-0.w-5.h-5.bg-blue-500.rounded-full.pointer-events-none.z-50.mix-blend-difference {
+    display: none !important;
+  }
+}
+
 /* Custom Scrollbar - Futuristic */
 ::-webkit-scrollbar {
   width: 8px;

@@ -67,7 +67,7 @@ const Navbar = () => {
                   className="text-lg lg:text-xl font-medium tracking-wide bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent"
                   transition={{ duration: 0.3 }}
                 >
-                  OH Architecture
+                  Ahmad architecture
                 </motion.span>
                 
                 {/* Holographic accent */}
